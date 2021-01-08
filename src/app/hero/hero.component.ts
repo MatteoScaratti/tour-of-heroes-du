@@ -7,7 +7,7 @@ import {Hero, HEROES} from '../model/hero';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent implements OnInit {
-  hero: Hero;
+  selectedHero: Hero;
   listOfHeroes = HEROES;
 
   constructor() {
@@ -17,6 +17,6 @@ export class HeroComponent implements OnInit {
   }
 
   changeHero(hero: Hero): void {
-    this.hero = hero;
+    this.selectedHero = hero;
   }
 }
