@@ -1,4 +1,4 @@
-<div *ngIf="hero">
+<div *ngIf="hero; else noHero">
   <div class="hero-name">{{hero.name | uppercase}}'s detail</div>
   <div>
     <label>Name:
@@ -10,3 +10,6 @@
     <span>{{hero.id}}</span>
   </div>
 </div>
+<ng-template #noHero>
+  Nessun eroe selezionato
+</ng-template>
