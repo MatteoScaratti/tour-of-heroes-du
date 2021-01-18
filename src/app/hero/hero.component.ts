@@ -8,7 +8,6 @@ import {HeroService} from '../hero.service';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent implements OnInit {
-  selectedHero: Hero;
   listOfHeroes: Hero[] = [];
 
   constructor(private heroService: HeroService) {
@@ -18,10 +17,6 @@ export class HeroComponent implements OnInit {
     this.heroService.getHeroes().subscribe(res => {
       this.listOfHeroes = res;
     });
-  }
-
-  changeHero(hero: Hero): void {
-    this.selectedHero = hero;
   }
 
   deleteHero(hero: Hero): void {
