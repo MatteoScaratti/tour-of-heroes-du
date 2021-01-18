@@ -5,6 +5,9 @@ import {HeroComponent} from './hero/hero.component';
 import {FormsModule} from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import {HeroService} from './hero.service';
+import {HttpClientModule} from '@angular/common/http';
+import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {InMemoryDataService} from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +17,13 @@ import {HeroService} from './hero.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, {dataEncapsulation: false}
+    )
   ],
-  providers: [HeroService],
+  providers: [HeroService, InMemoryDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
